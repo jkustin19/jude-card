@@ -1,0 +1,79 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Jude's Thanksgiving Card</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bitter:wght@500;800&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
+<style>
+/* Layout: one golf scorecard on a fairway-green ground; header, matchup, record rows, footer stamp. Single deliberate look. */
+:root{
+  --ground:#1f4a34; --card:#fbfaf3; --ink:#1d2a22; --green:#2f6b4a; --flag:#c8372d; --rule:#cfd6c8; --muted:#5d6b61;
+  --display:'Bitter',Georgia,serif; --mono:'Courier Prime','Courier New',monospace;
+  color-scheme:light;
+}
+html,body{min-height:100%}
+body{background:var(--ground);color:var(--ink);font-family:var(--mono);
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:32px}
+.card{max-width:520px;margin:0 auto;background:var(--card);border-radius:6px;box-shadow:0 18px 40px rgba(0,0,0,.35);overflow:hidden}
+.top{background:var(--green);color:var(--card);padding:22px 22px 18px;display:flex;justify-content:space-between;align-items:flex-end;gap:12px}
+.top .club{font-size:12px;letter-spacing:.22em;text-transform:uppercase;opacity:.85}
+.top h1{font-family:var(--display);font-weight:800;font-size:clamp(30px,8vw,40px);line-height:1;margin:6px 0 0;text-wrap:balance}
+.flag{flex:none;width:44px;height:58px;position:relative}
+.flag::before{content:"";position:absolute;left:6px;top:0;bottom:0;width:3px;background:var(--card)}
+.flag::after{content:"";position:absolute;left:9px;top:2px;border-left:30px solid var(--flag);border-top:11px solid transparent;border-bottom:11px solid transparent}
+.tee{display:grid;grid-template-columns:repeat(3,1fr);border-bottom:2px solid var(--ink)}
+.tee div{padding:12px 14px;border-right:1px solid var(--rule)}
+.tee div:last-child{border-right:0}
+.lbl{display:block;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+.val{display:block;font-weight:700;font-size:17px;margin-top:3px}
+.match{padding:22px;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:10px;text-align:center;border-bottom:1px dashed var(--rule)}
+.team .names{font-family:var(--display);font-weight:800;font-size:clamp(20px,5.6vw,26px)}
+.team.home .names{color:var(--green)}
+.vs{font-size:13px;color:var(--flag);font-weight:700;letter-spacing:.1em}
+table{width:100%;border-collapse:collapse;font-size:15px}
+th,td{padding:11px 14px;border-bottom:1px solid var(--rule);text-align:left;vertical-align:top}
+th{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);font-weight:400;background:#f1f2e8}
+td.n{font-variant-numeric:tabular-nums;font-weight:700;white-space:nowrap;color:var(--green)}
+.score{color:var(--flag)}
+.foot{padding:18px 22px 22px;display:flex;justify-content:space-between;align-items:center;gap:14px;flex-wrap:wrap}
+.foot p{margin:0;font-size:14px;line-height:1.5;max-width:30ch}
+.stamp{font-family:var(--display);font-weight:800;font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--flag);border:2px solid var(--flag);border-radius:4px;padding:6px 10px;transform:rotate(-4deg)}
+@media (max-width:420px){.tee{grid-template-columns:1fr 1fr}.tee div:nth-child(2){border-right:0}.tee div:last-child{grid-column:1/-1;border-top:1px solid var(--rule)}}
+</style>
+<style>body{margin:0}*{box-sizing:border-box}</style></head><body>
+<main class="card">
+  <header class="top">
+    <div>
+      <span class="club">Plantation Preserve · Thanksgiving</span>
+      <h1>Jude's Card</h1>
+    </div>
+    <div class="flag" aria-hidden="true"></div>
+  </header>
+
+  <section class="tee" aria-label="Tee time">
+    <div><span class="lbl">Date</span><span class="val">Thu Nov 26</span></div>
+    <div><span class="lbl">Tee time</span><span class="val">8:39 AM</span></div>
+    <div><span class="lbl">Players</span><span class="val">4</span></div>
+  </section>
+
+  <section class="match" aria-label="Matchup">
+    <div class="team home"><span class="lbl">Team</span><div class="names">Jude &amp; Gabe</div></div>
+    <div class="vs">VS</div>
+    <div class="team"><span class="lbl">Team</span><div class="names">Jackson &amp; Andres</div></div>
+  </section>
+
+  <table>
+    <thead><tr><th>Date</th><th>The record</th></tr></thead>
+    <tbody>
+      <tr><td class="n">Oct 13</td><td>Nine holes with Jackson</td></tr>
+      <tr><td class="n">Oct 18</td><td>Heritage scramble at the Fountains, Lake Worth. Fourth man on the winning team at <span class="score">12 under</span></td></tr>
+      <tr><td class="n">Nov 22</td><td>First to say "I'll be there" for Thanksgiving golf</td></tr>
+      <tr><td class="n">Nov 24</td><td>Locked in Gabe, so the group is 4</td></tr>
+      <tr><td class="n">Always</td><td>Steelers guy</td></tr>
+    </tbody>
+  </table>
+
+  <footer class="foot">
+    <p>Proven scramble winner. Fairways and greens tomorrow, then turkey. Good luck out there.</p>
+    <span class="stamp">Made by Sal</span>
+  </footer>
+</main>
+</body></html>
